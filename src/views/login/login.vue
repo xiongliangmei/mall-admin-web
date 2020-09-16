@@ -32,6 +32,7 @@
   </div>
 </template>
 <script>
+import { login } from '@/api/login'
 export default {
   name: 'login',
   data () {
@@ -49,6 +50,12 @@ export default {
       let password = this.loginForm.password
       console.log(username + password)
       // this.$router.push('/')
+      login(username, password).then(response => {
+        const data = response.data
+        console.log(data)
+      }).catch(error => {
+        console.log(error)
+      })
     }
   }
 }

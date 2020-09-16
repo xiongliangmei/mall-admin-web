@@ -1,7 +1,7 @@
 import Mock from 'mockjs'
 
-Mock.mock('http://localhost:8080/userInfo', {
-  'name': '@name',
-  'email': '@email',
-  'age|1-10': 5
+Mock.mock('http://localhost:8080/admin/login', {
+  'code': 200,
+  'message': 'success',
+  'data': '123123213'
 })
