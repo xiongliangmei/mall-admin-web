@@ -1,6 +1,6 @@
 // 用户登录
-import { login, logout, getInfo } from '@/api/login'
-import { getToken, setToken, removeToken } from '@/utils/auth'
+import { login, logout, getInfo } from '../../api/login'
+import { getToken, setToken, removeToken } from '../../utils/auth'
 
 const user = {
   state: {
@@ -55,9 +55,25 @@ const user = {
           reject(error)
         })
       })
+    },
+    // 登出
+    LogOut ({commit}, state) {
+      return new Promise((resolve, reject) => {
+        logout(state.token).then(() => {
+          commit('SET_TOKEN', '')
+          commit('SET_ROLES', [])
+          removeToken()
+          resolve()
+        })
+      })
+    },
+    FedLogOut ({commit}) {
+      return new Promise(resolve => {
+        commit('SET_TOKEN', '')
+        removeToken()
+        resolve()
+      })
     }
-
   }
 }
-
 export default user

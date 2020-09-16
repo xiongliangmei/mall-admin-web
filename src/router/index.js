@@ -5,12 +5,16 @@ import Layout from '../views/layout/index'
 
 Vue.use(Router)
 
-export default new Router({
+const router = new Router({
   routes: [
     {
       path: '/',
       name: 'Layout',
-      component: Layout
+      component: Layout,
+      children: [
+        {
+        }
+      ]
     },
     {
       path: '/login',
@@ -19,3 +23,4 @@ export default new Router({
     }
   ]
 })
+export default router
