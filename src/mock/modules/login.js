@@ -14,7 +14,7 @@ export function login () {
     }
   }
   return {
-    url: 'login',
+    url: 'admin/login',
     type: 'post',
     dta: loginData
   }
@@ -28,7 +28,7 @@ export function logout () {
     'data': {}
   }
   return {
-    url: 'logout',
+    url: 'admin/logout',
     type: 'get',
     data: data
   }
